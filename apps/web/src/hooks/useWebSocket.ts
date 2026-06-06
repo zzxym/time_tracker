@@ -36,7 +36,9 @@ export function useWebSocket(): UseWebSocketResult {
   const { handleWSEvent } = useActivityStore();
 
   const getWsUrl = useCallback(() => {
-    const wsBaseUrl = import.meta.env.VITE_WS_BASE_URL || 'ws://localhost:8000/api/ws';
+    const wsBaseUrl =
+      import.meta.env.VITE_WS_BASE_URL ||
+      `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/api/ws`;
     const separator = wsBaseUrl.includes('?') ? '&' : '?';
     return `${wsBaseUrl}${separator}token=${accessToken}`;
   }, [accessToken]);
