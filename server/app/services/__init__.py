@@ -1,6 +1,17 @@
-from app.services.auth_service import AuthService
-from app.services.activity_service import ActivityService
-from app.services.sync_service import SyncService
-from app.services.export_service import ExportService
+"""Services package."""
 
-__all__ = ["AuthService", "ActivityService", "SyncService", "ExportService"]
+from app.services import (
+    auth_service,
+    activity_service,
+    sync_service,
+    export_service,
+    team_service,
+)
+
+__all__ = [
+    "auth_service",
+    "activity_service",
+    "sync_service",
+    "export_service",
+    "team_service",
+]

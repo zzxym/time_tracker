@@ -44,6 +44,8 @@ class User(Base):
     # Relationships
     activities = relationship("Activity", back_populates="user", lazy="selectin")
     tags = relationship("Tag", back_populates="user", lazy="selectin")
+    owned_teams = relationship("Team", back_populates="owner", lazy="selectin")
+    team_memberships = relationship("TeamMember", back_populates="user", lazy="selectin")
 
     def __repr__(self) -> str:
         return f"<User(id={self.id}, username={self.username}, email={self.email})>"

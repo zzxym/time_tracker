@@ -19,6 +19,7 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LabelIcon from '@mui/icons-material/Label';
 import SettingsIcon from '@mui/icons-material/Settings';
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useUIStore } from '../../stores/uiStore';
 import { useTagStore } from '../../stores/tagStore';
@@ -29,6 +30,7 @@ const navItems = [
   { text: '首页', icon: <HomeIcon />, path: '/home' },
   { text: '时间线', icon: <TimelineIcon />, path: '/timeline' },
   { text: '统计', icon: <BarChartIcon />, path: '/stats' },
+  { text: '团队', icon: <GroupsIcon />, path: '/teams' },
   { text: '标签', icon: <LabelIcon />, path: '/tags' },
   { text: '设置', icon: <SettingsIcon />, path: '/settings' },
 ];

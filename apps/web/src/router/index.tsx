@@ -1,5 +1,3 @@
-/** React Router configuration. */
-
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
@@ -9,6 +7,8 @@ import TimelinePage from '../pages/TimelinePage';
 import StatsPage from '../pages/StatsPage';
 import TagsPage from '../pages/TagsPage';
 import SettingsPage from '../pages/SettingsPage';
+import TeamsPage from '../pages/TeamsPage';
+import TeamDetailPage from '../pages/TeamDetailPage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
 import { useWebSocket } from '../hooks/useWebSocket';
@@ -73,6 +73,8 @@ const AppRouter: React.FC = () => {
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/timeline" element={<TimelinePage />} />
                 <Route path="/stats" element={<StatsPage />} />
+                <Route path="/teams" element={<TeamsPage />} />
+                <Route path="/teams/:teamId" element={<TeamDetailPage />} />
                 <Route path="/tags" element={<TagsPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="*" element={<Navigate to="/home" replace />} />
