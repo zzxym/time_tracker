@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Tracker - Floating Window</title>
+  <link rel="stylesheet" href="floatingWindow.css" />
+</head>
+<body>
+  <div id="floating-container">
+    <div id="drag-handle">
+      <span class="drag-dots">⠿</span>
+      <span id="close-btn" title="Close">&times;</span>
+    </div>
+    <div id="timer-content">
+      <div id="activity-name">No activity running</div>
+      <div id="timer-display">00:00:00</div>
+    </div>
+    <div id="opacity-control">
+      <label for="opacity-slider">Opacity</label>
+      <input type="range" id="opacity-slider" min="20" max="100" value="100" />
+    </div>
+  </div>
+  <script src="floatingWindow.js"></script>
+</body>
+</html>

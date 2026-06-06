@@ -1,0 +1,81 @@
+classDiagram
+    direction TB
+
+    class User {
+        +str id PK
+        +str username
+        +str email
+        +str password_hash
+        +str role
+        +dict settings
+        +datetime created_at
+        +datetime updated_at
+    }
+
+    class Activity {
+        +str id PK
+        +str user_id FK
+        +str name
+        +str color
+        +ActivityStatus status
+        +bool is_parallel
+        +datetime started_at
+        +datetime ended_at
+        +int total_duration_seconds
+        +datetime created_at
+        +datetime updated_at
+        +start() Activity
+        +pause() Activity
+        +resume() Activity
+        +stop() Activity
+        +get_elapsed_seconds() int
+    }
+
+    class TimeSegment {
+        +str id PK
+        +str activity_id FK
+        +datetime start_time
+        +datetime|None end_time
+        +get_duration_seconds() int
+    }
+
+    class Tag {
+        +str id PK
+        +str user_id FK
+        +str name
+        +str color
+        +datetime created_at
+    }
+
+    class ActivityTag {
+        +str activity_id FK
+        +str tag_id FK
+    }
+
+    class ActivityStatus {
+        <<enumeration>>
+        RUNNING
+        PAUSED
+        ENDED
+    }
+
+    class WSMessage {
+        <<interface>>
+        +str type
+        +dict payload
+    }
+
+    class APIResponse~T~ {
+        <<interface>>
+        +int code
+        +T data
+        +str message
+    }
+
+    User "1" --> "*" Activity : owns
+    User "1" --> "*" Tag : owns
+    Activity "1" --> "*" TimeSegment : has
+    Activity "*" --> "*" Tag : via ActivityTag
+
+    note for Activity "status 枚举值: RUNNING | PAUSED | ENDED\ntotal_duration_seconds 为累计时长(不含当前运行段)\n实际时长 = total_duration_seconds + 当前段已用时间"
+    note for TimeSegment "end_time 为 None 表示正在计时\n活动 PAUSED/ENDED 时当前段 end_time 被写入"

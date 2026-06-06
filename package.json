@@ -1,0 +1,19 @@
+{
+  "name": "time-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-platform activity time tracking system",
+  "scripts": {
+    "dev:web": "pnpm --filter @time-tracker/web dev",
+    "dev:server": "cd server && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "build:web": "pnpm --filter @time-tracker/web build",
+    "build:shared": "pnpm --filter @time-tracker/shared build",
+    "build:electron": "pnpm --filter @time-tracker/electron build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
