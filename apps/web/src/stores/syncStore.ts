@@ -1,7 +1,6 @@
 /** WebSocket sync state management with Zustand. */
 
 import { create } from 'zustand';
-import { WS_CONFIG } from '@time-tracker/shared';
 
 export type WSConnectionStatus = 'connecting' | 'connected' | 'disconnected' | 'reconnecting';
 

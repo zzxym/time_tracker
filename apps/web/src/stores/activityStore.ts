@@ -1,7 +1,7 @@
 /** Activity state management with Zustand. */
 
 import { create } from 'zustand';
-import type { Activity, ActivityStatus } from '@time-tracker/shared';
+import type { Activity } from '@time-tracker/shared';
 import * as activitiesApi from '../api/activities';
 
 interface ActivityState {
@@ -84,7 +84,7 @@ export const useActivityStore = create<ActivityState>()((set, get) => ({
       });
     } catch (error: unknown) {
       const err = error as { response?: { data?: { message?: string } } };
-      throw new Error(err.response?.data?.message || 'Failed to start activity');
+      throw new Error(err.response?.data?.message || '启动活动失败');
     }
   },
 
@@ -115,7 +115,7 @@ export const useActivityStore = create<ActivityState>()((set, get) => ({
       });
     } catch (error: unknown) {
       const err = error as { response?: { data?: { message?: string } } };
-      throw new Error(err.response?.data?.message || 'Failed to resume activity');
+      throw new Error(err.response?.data?.message || '恢复活动失败');
     }
   },
 
@@ -159,7 +159,7 @@ export const useActivityStore = create<ActivityState>()((set, get) => ({
   },
 
   handleWSEvent: (event) => {
-    const { type, payload } = event;
+    const { type } = event;
 
     // Handle different event types from WebSocket
     if (

@@ -123,7 +123,7 @@ const StatsPanel: React.FC = () => {
       ) : (
         <Box sx={{ textAlign: 'center', py: 4 }}>
           <Typography color="text.secondary">
-            No activity data available for this period.
+            此时间段暂无活动数据。
           </Typography>
         </Box>
       )}
@@ -131,7 +131,7 @@ const StatsPanel: React.FC = () => {
       {/* Activity breakdown list */}
       {stats && stats.activities.length > 0 && (
         <Paper sx={{ p: 2, mt: 2 }}>
-          <Typography variant="subtitle1" sx={{ mb: 1 }}>Activity Breakdown</Typography>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>活动详情</Typography>
           {stats.activities.map((a) => (
             <Box
               key={a.activity_id}

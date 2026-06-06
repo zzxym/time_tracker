@@ -18,7 +18,7 @@ interface TagState {
   clearTagFilters: () => void;
 }
 
-export const useTagStore = create<TagState>()((set, get) => ({
+export const useTagStore = create<TagState>()((set) => ({
   tags: [],
   selectedTagIds: [],
   isLoading: false,

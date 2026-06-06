@@ -27,7 +27,7 @@ interface ActivityFormProps {
 
 const ActivityForm: React.FC<ActivityFormProps> = ({ open, onClose, activity }) => {
   const [name, setName] = useState('');
-  const [color, setColor] = useState(DEFAULT_COLORS[0]);
+  const [color, setColor] = useState<string>(DEFAULT_COLORS[0]);
   const [isParallel, setIsParallel] = useState(false);
   const [selectedTagIds, setSelectedTagIds] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,24 +90,24 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ open, onClose, activity }) 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>
-        {isEditing ? 'Edit Activity' : 'Create Activity'}
+        {isEditing ? '编辑活动' : '创建活动'}
       </DialogTitle>
       <DialogContent>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
           <TextField
-            label="Activity Name"
+            label="活动名称"
             value={name}
             onChange={(e) => setName(e.target.value)}
             fullWidth
             autoFocus
             required
-            placeholder="e.g., Reading, Coding, Exercise"
+            placeholder="例如：阅读、编程、运动"
           />
 
           {/* Color picker */}
           <Box>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Color
+              颜色
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
               {DEFAULT_COLORS.map((c) => (
@@ -165,13 +165,13 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ open, onClose, activity }) 
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={onClose}>取消</Button>
         <Button
           variant="contained"
           onClick={handleSubmit}
           disabled={!name.trim() || isSubmitting}
         >
-          {isEditing ? 'Save' : 'Create'}
+          {isEditing ? '保存' : '创建'}
         </Button>
       </DialogActions>
     </Dialog>

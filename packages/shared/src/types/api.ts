@@ -62,3 +62,5 @@ export interface DateRange {
 }
 
 export type ExportFormat = 'csv' | 'excel' | 'json';
+
+export interface ActivityListResponse extends PaginatedResponse<Activity> {}

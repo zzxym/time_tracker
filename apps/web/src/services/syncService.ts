@@ -4,7 +4,6 @@ import type { WSConnectionStatus } from '../stores/syncStore';
 import { useActivityStore } from '../stores/activityStore';
 
 const POLL_INTERVAL = 5000; // 5 seconds
-const MAX_POLL_INTERVAL = 30000; // 30 seconds
 
 let pollTimer: ReturnType<typeof setInterval> | null = null;
 

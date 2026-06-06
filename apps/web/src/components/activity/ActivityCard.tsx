@@ -32,13 +32,19 @@ interface ActivityCardProps {
 }
 
 const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
-  const { startActivity, pauseActivity, resumeActivity, stopActivity, deleteActivity } =
+  const { startActivity, pauseActivity, stopActivity, deleteActivity } =
     useActivityStore();
   const { display, isRunning } = useTimer(activity);
   const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [confirmStop, setConfirmStop] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const statusText = {
+    RUNNING: '运行中',
+    PAUSED: '已暂停',
+    ENDED: '已结束',
+  };
 
   const handleStart = async () => {
     setIsProcessing(true);
@@ -57,17 +63,6 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
       await pauseActivity(activity.id);
     } catch (error) {
       console.error('Failed to pause activity:', error);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const handleResume = async () => {
-    setIsProcessing(true);
-    try {
-      await resumeActivity(activity.id);
-    } catch (error) {
-      console.error('Failed to resume activity:', error);
     } finally {
       setIsProcessing(false);
     }
@@ -117,13 +112,13 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
                 {activity.name}
               </Typography>
               <Chip
-                label={activity.status}
+                label={statusText[activity.status]}
                 size="small"
                 color={statusColor}
                 variant="outlined"
               />
               {activity.is_parallel && (
-                <Chip label="Parallel" size="small" color="info" variant="outlined" />
+                <Chip label="并行" size="small" color="info" variant="outlined" />
               )}
             </Box>
 
@@ -222,15 +217,15 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
       {/* Confirm dialogs */}
       <ConfirmDialog
         open={confirmDelete}
-        title="Delete Activity"
-        message={`Are you sure you want to delete "${activity.name}"? This action cannot be undone.`}
+        title="删除活动"
+        message={`确定要删除 "${activity.name}" 吗？此操作无法撤销。`}
         onConfirm={handleDelete}
         onCancel={() => setConfirmDelete(false)}
       />
       <ConfirmDialog
         open={confirmStop}
-        title="Stop Activity"
-        message={`Are you sure you want to stop "${activity.name}"?`}
+        title="停止活动"
+        message={`确定要停止 "${activity.name}" 吗？`}
         onConfirm={handleStop}
         onCancel={() => setConfirmStop(false)}
       />

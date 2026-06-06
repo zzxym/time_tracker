@@ -20,12 +20,6 @@ export async function downloadExport(
     json: '.json',
   };
 
-  const mimeTypes: Record<ExportFormat, string> = {
-    csv: 'text/csv',
-    excel: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    json: 'application/json',
-  };
-
   const fileName = `activities${extensions[format]}`;
   saveAs(blob, fileName);
 }

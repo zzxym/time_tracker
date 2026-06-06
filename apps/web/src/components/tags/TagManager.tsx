@@ -28,7 +28,7 @@ const TagManager: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingTag, setEditingTag] = useState<{ id: string; name: string; color: string } | null>(null);
   const [tagName, setTagName] = useState('');
-  const [tagColor, setTagColor] = useState(DEFAULT_COLORS[0]);
+  const [tagColor, setTagColor] = useState<string>(DEFAULT_COLORS[0]);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -75,16 +75,16 @@ const TagManager: React.FC = () => {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h5">Manage Tags</Typography>
+        <Typography variant="h5">标签管理</Typography>
         <Button variant="contained" startIcon={<AddIcon />} onClick={handleOpenCreate}>
-          New Tag
+          新建标签
         </Button>
       </Box>
 
       {tags.length === 0 ? (
         <Box sx={{ textAlign: 'center', py: 4 }}>
           <Typography color="text.secondary">
-            No tags yet. Create one to categorize your activities!
+            暂无标签，创建一个来分类你的活动吧！
           </Typography>
         </Box>
       ) : (
@@ -129,7 +129,7 @@ const TagManager: React.FC = () => {
 
       {/* Tag form dialog */}
       <Dialog open={showForm} onClose={() => setShowForm(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>{editingTag ? 'Edit Tag' : 'Create Tag'}</DialogTitle>
+        <DialogTitle>{editingTag ? '编辑标签' : '创建标签'}</DialogTitle>
         <DialogContent>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
             <TextField
@@ -177,8 +177,8 @@ const TagManager: React.FC = () => {
 
       <ConfirmDialog
         open={Boolean(confirmDelete)}
-        title="Delete Tag"
-        message="Are you sure you want to delete this tag? It will be removed from all associated activities."
+        title="删除标签"
+        message="确定要删除这个标签吗？它将从所有相关活动中移除。"
         onConfirm={() => confirmDelete && handleDelete(confirmDelete)}
         onCancel={() => setConfirmDelete(null)}
         severity="error"

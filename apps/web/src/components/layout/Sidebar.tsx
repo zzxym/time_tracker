@@ -26,11 +26,11 @@ import { useTagStore } from '../../stores/tagStore';
 const DRAWER_WIDTH = 280;
 
 const navItems = [
-  { text: 'Home', icon: <HomeIcon />, path: '/home' },
-  { text: 'Timeline', icon: <TimelineIcon />, path: '/timeline' },
-  { text: 'Statistics', icon: <BarChartIcon />, path: '/stats' },
-  { text: 'Tags', icon: <LabelIcon />, path: '/tags' },
-  { text: 'Settings', icon: <SettingsIcon />, path: '/settings' },
+  { text: '首页', icon: <HomeIcon />, path: '/home' },
+  { text: '时间线', icon: <TimelineIcon />, path: '/timeline' },
+  { text: '统计', icon: <BarChartIcon />, path: '/stats' },
+  { text: '标签', icon: <LabelIcon />, path: '/tags' },
+  { text: '设置', icon: <SettingsIcon />, path: '/settings' },
 ];
 
 const Sidebar: React.FC = () => {
@@ -79,11 +79,11 @@ const Sidebar: React.FC = () => {
       {/* Tag Filters */}
       <Box sx={{ p: 2 }}>
         <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
-          Filter by Tags
+          按标签筛选
         </Typography>
         {tags.length === 0 ? (
           <Typography variant="body2" color="text.secondary">
-            No tags yet
+            暂无标签
           </Typography>
         ) : (
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>

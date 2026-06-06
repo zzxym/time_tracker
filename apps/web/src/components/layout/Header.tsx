@@ -18,10 +18,10 @@ import { useSyncStore, type WSConnectionStatus } from '../../stores/syncStore';
 import { useAuthStore } from '../../stores/authStore';
 
 const statusConfig: Record<WSConnectionStatus, { label: string; color: 'success' | 'warning' | 'error' | 'default' }> = {
-  connected: { label: 'Connected', color: 'success' },
-  connecting: { label: 'Connecting', color: 'warning' },
-  disconnected: { label: 'Offline', color: 'error' },
-  reconnecting: { label: 'Reconnecting', color: 'warning' },
+  connected: { label: '已连接', color: 'success' },
+  connecting: { label: '连接中', color: 'warning' },
+  disconnected: { label: '离线', color: 'error' },
+  reconnecting: { label: '重连中', color: 'warning' },
 };
 
 const Header: React.FC = () => {
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         </IconButton>
 
         <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-          Time Tracker
+          时间追踪器
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

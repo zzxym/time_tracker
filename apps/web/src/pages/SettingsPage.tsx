@@ -5,10 +5,7 @@ import {
   Box,
   Typography,
   Paper,
-  Switch,
-  FormControlLabel,
   Button,
-  Divider,
   Select,
   MenuItem,
   InputLabel,
@@ -41,16 +38,16 @@ const SettingsPage: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h5" sx={{ mb: 3 }}>Settings</Typography>
+      <Typography variant="h5" sx={{ mb: 3 }}>设置</Typography>
 
       {/* User info */}
       <Paper sx={{ p: 3, mb: 2 }}>
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>Account</Typography>
+        <Typography variant="subtitle1" sx={{ mb: 1 }}>账号</Typography>
         <Typography variant="body2" color="text.secondary">
-          Username: {user?.username || 'N/A'}
+          用户名：{user?.username || 'N/A'}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Email: {user?.email || 'N/A'}
+          邮箱：{user?.email || 'N/A'}
         </Typography>
         <Button
           variant="outlined"
@@ -59,36 +56,36 @@ const SettingsPage: React.FC = () => {
           onClick={logout}
           sx={{ mt: 2 }}
         >
-          Sign Out
+          退出登录
         </Button>
       </Paper>
 
       {/* Theme */}
       <Paper sx={{ p: 3, mb: 2 }}>
-        <Typography variant="subtitle1" sx={{ mb: 2 }}>Appearance</Typography>
+        <Typography variant="subtitle1" sx={{ mb: 2 }}>外观</Typography>
         <FormControl fullWidth size="small">
-          <InputLabel>Theme</InputLabel>
+          <InputLabel>主题</InputLabel>
           <Select
             value={theme}
-            label="Theme"
+            label="主题"
             onChange={(e: SelectChangeEvent) => setTheme(e.target.value as 'light' | 'dark' | 'system')}
           >
-            <MenuItem value="light">Light</MenuItem>
-            <MenuItem value="dark">Dark</MenuItem>
-            <MenuItem value="system">System Default</MenuItem>
+            <MenuItem value="light">浅色</MenuItem>
+            <MenuItem value="dark">深色</MenuItem>
+            <MenuItem value="system">跟随系统</MenuItem>
           </Select>
         </FormControl>
       </Paper>
 
       {/* Data export */}
       <Paper sx={{ p: 3, mb: 2 }}>
-        <Typography variant="subtitle1" sx={{ mb: 2 }}>Data Export</Typography>
+        <Typography variant="subtitle1" sx={{ mb: 2 }}>数据导出</Typography>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <FormControl size="small" sx={{ minWidth: 120 }}>
-            <InputLabel>Format</InputLabel>
+            <InputLabel>格式</InputLabel>
             <Select
               value={exportFormat}
-              label="Format"
+              label="格式"
               onChange={(e: SelectChangeEvent) => setExportFormat(e.target.value as ExportFormat)}
             >
               <MenuItem value="csv">CSV</MenuItem>
@@ -102,19 +99,19 @@ const SettingsPage: React.FC = () => {
             onClick={handleExport}
             disabled={isExporting}
           >
-            {isExporting ? 'Exporting...' : 'Export'}
+            {isExporting ? '导出中...' : '导出'}
           </Button>
         </Box>
       </Paper>
 
       {/* About */}
       <Paper sx={{ p: 3 }}>
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>About</Typography>
+        <Typography variant="subtitle1" sx={{ mb: 1 }}>关于</Typography>
         <Typography variant="body2" color="text.secondary">
-          Time Tracker v1.0.0
+          时间追踪器 v1.0.0
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Multi-platform activity time tracking system
+          跨平台活动时间追踪系统
         </Typography>
       </Paper>
     </Box>

@@ -26,10 +26,10 @@ const ActivityList: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { label: 'All', activities: filteredActivities },
-    { label: `Running (${runningActivities.length})`, activities: runningActivities },
-    { label: `Paused (${pausedActivities.length})`, activities: pausedActivities },
-    { label: `Ended (${endedActivities.length})`, activities: endedActivities },
+    { label: '全部', activities: filteredActivities },
+    { label: `运行中 (${runningActivities.length})`, activities: runningActivities },
+    { label: `已暂停 (${pausedActivities.length})`, activities: pausedActivities },
+    { label: `已结束 (${endedActivities.length})`, activities: endedActivities },
   ];
 
   const currentActivities = tabs[activeTab].activities;
@@ -73,7 +73,7 @@ const ActivityList: React.FC = () => {
       {currentActivities.length === 0 ? (
         <Box sx={{ textAlign: 'center', py: 4 }}>
           <Typography color="text.secondary">
-            No activities found. Create one to get started!
+            暂无活动，创建一个开始吧！
           </Typography>
         </Box>
       ) : (

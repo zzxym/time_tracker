@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { TIMER_REFRESH_INTERVAL } from '@time-tracker/shared';
 import { calculateElapsedSeconds, getCurrentSegmentStart, formatDuration } from '@time-tracker/shared';
-import type { Activity, TimeSegment } from '@time-tracker/shared';
+import type { Activity } from '@time-tracker/shared';
 
 interface UseTimerResult {
   /** Formatted elapsed time string (HH:MM:SS). */

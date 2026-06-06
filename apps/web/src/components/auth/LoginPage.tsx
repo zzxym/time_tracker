@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
       await login(email, password);
       navigate('/home');
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Login failed';
+      const message = err instanceof Error ? err.message : '登录失败';
       setError(message);
     } finally {
       setIsLoading(false);
@@ -51,17 +51,17 @@ const LoginPage: React.FC = () => {
       <Card sx={{ maxWidth: 400, width: '100%', mx: 2 }}>
         <CardContent sx={{ p: 4 }}>
           <Typography variant="h4" align="center" gutterBottom>
-            Time Tracker
+            时间追踪器
           </Typography>
           <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 3 }}>
-            Track your activities across all devices
+            在所有设备上追踪你的活动
           </Typography>
 
           {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
-              label="Email"
+              label="邮箱"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +71,7 @@ const LoginPage: React.FC = () => {
               autoComplete="email"
             />
             <TextField
-              label="Password"
+              label="密码"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -88,15 +88,15 @@ const LoginPage: React.FC = () => {
               disabled={isLoading}
               sx={{ mt: 2 }}
             >
-              {isLoading ? 'Signing in...' : 'Sign In'}
+              {isLoading ? '登录中...' : '登录'}
             </Button>
           </Box>
 
           <Box sx={{ mt: 2, textAlign: 'center' }}>
             <Typography variant="body2">
-              Don't have an account?{' '}
+              还没有账号？{' '}
               <Link component={RouterLink} to="/register">
-                Sign Up
+                注册
               </Link>
             </Typography>
           </Box>

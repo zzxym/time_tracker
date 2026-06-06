@@ -1,15 +1,15 @@
 /** Statistics and export API functions. */
 
 import apiClient from './client';
-import type { APIResponse, StatsSummary, ExportFormat } from '@time-tracker/shared';
+import type { StatsSummary, ExportFormat } from '@time-tracker/shared';
 
 /** Get statistics summary for a time period. */
 export async function getStatsSummary(params?: {
   period?: 'day' | 'week' | 'month';
   date?: string;
 }): Promise<StatsSummary> {
-  const response = await apiClient.get<APIResponse<StatsSummary>>('/stats/summary', { params });
-  return response.data.data;
+  const response = await apiClient.get<StatsSummary>('/stats/summary', { params });
+  return response.data;
 }
 
 /** Get export download URL. */

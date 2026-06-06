@@ -1,10 +1,10 @@
 /** Timeline view component showing activities as time blocks. */
 
 import React, { useMemo } from 'react';
-import { Box, Typography, Paper, Chip } from '@mui/material';
+import { Box, Typography, Paper } from '@mui/material';
 import type { Activity } from '@time-tracker/shared';
 import { useActivityStore } from '../../stores/activityStore';
-import { formatDurationHuman, formatDateTime } from '@time-tracker/shared';
+import { formatDurationHuman } from '@time-tracker/shared';
 
 const HOUR_HEIGHT = 60; // pixels per hour
 
@@ -123,7 +123,7 @@ const Timeline: React.FC = () => {
       {timelineBlocks.length === 0 && (
         <Box sx={{ textAlign: 'center', py: 4 }}>
           <Typography color="text.secondary">
-            No activities recorded today. Start tracking to see your timeline!
+            今天还没有记录活动。开始追踪来查看你的时间线吧！
           </Typography>
         </Box>
       )}

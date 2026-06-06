@@ -13,7 +13,6 @@ import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
 import { useWebSocket } from '../hooks/useWebSocket';
 import { manageSyncMode } from '../services/syncService';
-import { useSyncStore } from '../stores/syncStore';
 
 /** Protected route wrapper that requires authentication. */
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {

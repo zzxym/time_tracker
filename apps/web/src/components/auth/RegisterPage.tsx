@@ -29,7 +29,7 @@ const RegisterPage: React.FC = () => {
     setError('');
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('两次输入的密码不一致');
       return;
     }
 
@@ -38,7 +38,7 @@ const RegisterPage: React.FC = () => {
       await register(username, email, password);
       navigate('/home');
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Registration failed';
+      const message = err instanceof Error ? err.message : '注册失败';
       setError(message);
     } finally {
       setIsLoading(false);
@@ -58,17 +58,17 @@ const RegisterPage: React.FC = () => {
       <Card sx={{ maxWidth: 400, width: '100%', mx: 2 }}>
         <CardContent sx={{ p: 4 }}>
           <Typography variant="h4" align="center" gutterBottom>
-            Create Account
+            创建账号
           </Typography>
           <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 3 }}>
-            Start tracking your activities
+            开始追踪你的活动
           </Typography>
 
           {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
-              label="Username"
+              label="用户名"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               fullWidth
@@ -77,7 +77,7 @@ const RegisterPage: React.FC = () => {
               autoComplete="username"
             />
             <TextField
-              label="Email"
+              label="邮箱"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -87,7 +87,7 @@ const RegisterPage: React.FC = () => {
               autoComplete="email"
             />
             <TextField
-              label="Password"
+              label="密码"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -95,10 +95,10 @@ const RegisterPage: React.FC = () => {
               required
               margin="normal"
               autoComplete="new-password"
-              helperText="At least 6 characters"
+              helperText="至少6个字符"
             />
             <TextField
-              label="Confirm Password"
+              label="确认密码"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -115,15 +115,15 @@ const RegisterPage: React.FC = () => {
               disabled={isLoading}
               sx={{ mt: 2 }}
             >
-              {isLoading ? 'Creating Account...' : 'Sign Up'}
+              {isLoading ? '创建中...' : '注册'}
             </Button>
           </Box>
 
           <Box sx={{ mt: 2, textAlign: 'center' }}>
             <Typography variant="body2">
-              Already have an account?{' '}
+              已有账号？{' '}
               <Link component={RouterLink} to="/login">
-                Sign In
+                登录
               </Link>
             </Typography>
           </Box>
