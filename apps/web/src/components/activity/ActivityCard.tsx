@@ -201,7 +201,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
           }}
         >
           <ListItemIcon><EditIcon fontSize="small" /></ListItemIcon>
-          <ListItemText>Edit</ListItemText>
+          <ListItemText>编辑</ListItemText>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -210,7 +210,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity, onEdit }) => {
           }}
         >
           <ListItemIcon><DeleteIcon fontSize="small" color="error" /></ListItemIcon>
-          <ListItemText sx={{ color: 'error.main' }}>Delete</ListItemText>
+          <ListItemText sx={{ color: 'error.main' }}>删除</ListItemText>
         </MenuItem>
       </Menu>
 

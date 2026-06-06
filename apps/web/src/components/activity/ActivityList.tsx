@@ -47,7 +47,7 @@ const ActivityList: React.FC = () => {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h5">Activities</Typography>
+        <Typography variant="h5">活动</Typography>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -56,7 +56,7 @@ const ActivityList: React.FC = () => {
             setShowForm(true);
           }}
         >
-          New Activity
+          新建活动
         </Button>
       </Box>
 

@@ -136,7 +136,7 @@ const ActivityForm: React.FC<ActivityFormProps> = ({ open, onClose, activity }) 
                 onChange={(e) => setIsParallel(e.target.checked)}
               />
             }
-            label="Allow parallel execution (run alongside other activities)"
+            label="允许并行执行（与其他活动同时运行）"
           />
 
           {/* Tag selection */}

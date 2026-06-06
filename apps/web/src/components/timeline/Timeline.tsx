@@ -50,7 +50,7 @@ const Timeline: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h5" sx={{ mb: 2 }}>Timeline</Typography>
+      <Typography variant="h5" sx={{ mb: 2 }}>时间线</Typography>
 
       <Paper sx={{ p: 2, position: 'relative', overflow: 'auto', maxHeight: '80vh' }}>
         {/* Hour grid lines */}

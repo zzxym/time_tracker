@@ -44,10 +44,10 @@ const SettingsPage: React.FC = () => {
       <Paper sx={{ p: 3, mb: 2 }}>
         <Typography variant="subtitle1" sx={{ mb: 1 }}>账号</Typography>
         <Typography variant="body2" color="text.secondary">
-          用户名：{user?.username || 'N/A'}
+          用户名：{user?.username || '无'}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          邮箱：{user?.email || 'N/A'}
+          邮箱：{user?.email || '无'}
         </Typography>
         <Button
           variant="outlined"

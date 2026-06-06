@@ -64,16 +64,16 @@ const StatsPanel: React.FC = () => {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h5">Statistics</Typography>
+        <Typography variant="h5">统计</Typography>
         <ToggleButtonGroup
           value={period}
           exclusive
           onChange={(_, v) => v && setPeriod(v)}
           size="small"
         >
-          <ToggleButton value="day">Day</ToggleButton>
-          <ToggleButton value="week">Week</ToggleButton>
-          <ToggleButton value="month">Month</ToggleButton>
+          <ToggleButton value="day">今日</ToggleButton>
+          <ToggleButton value="week">本周</ToggleButton>
+          <ToggleButton value="month">本月</ToggleButton>
         </ToggleButtonGroup>
       </Box>
 
@@ -81,7 +81,7 @@ const StatsPanel: React.FC = () => {
       <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
         <Card sx={{ flex: 1 }}>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">Total Duration</Typography>
+            <Typography variant="body2" color="text.secondary">总时长</Typography>
             <Typography variant="h5">
               {stats ? formatDurationHuman(stats.total_duration_seconds) : '--'}
             </Typography>
@@ -89,7 +89,7 @@ const StatsPanel: React.FC = () => {
         </Card>
         <Card sx={{ flex: 1 }}>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">Activities</Typography>
+            <Typography variant="body2" color="text.secondary">活动数</Typography>
             <Typography variant="h5">{stats?.activity_count ?? '--'}</Typography>
           </CardContent>
         </Card>
@@ -98,7 +98,7 @@ const StatsPanel: React.FC = () => {
       {/* Pie chart */}
       {pieData.length > 0 ? (
         <Paper sx={{ p: 2 }}>
-          <Typography variant="subtitle1" sx={{ mb: 1 }}>Time Distribution</Typography>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>时间分布</Typography>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
